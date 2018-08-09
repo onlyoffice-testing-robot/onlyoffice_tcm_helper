@@ -4,15 +4,17 @@ require 'rspec'
 module OnlyofficeTcmHelper
   class TcmHelper
     include RspecHelper
-    attr_accessor :status, :cases_name, :example, :comment, :product, :plan, :suite, :last_case
+    attr_accessor :status, :cases_name, :example, :comment, :product_name, :plan_name, :suite_name, :last_case
 
 
     def initialize(params = {})
-      @product = params[:product]
-      @plan = params[:plan]
-      @suite = params[:suite]
+      @product_name = params[:product_name]
+      @plan_name = params[:plan_name]
+      @suite_name = params[:suite_name]
     end
 
+    # @param [RSpec::Core::Example] example - is a returned object in "after" block
+    # @return [TcmHelper] is object
     def parse(example)
       @case_name = example.metadata[:description]
       get_status_and_comment(example)

@@ -1,8 +1,8 @@
 RSpec.describe OnlyofficeTcmHelper do
   describe 'Tests for tcm helper' do
-    tcm_helper = OnlyofficeTcmHelper::TcmHelper.new(product: 'Product',
-                                                    plan: 'Plan',
-                                                    suite: description)
+    tcm_helper = OnlyofficeTcmHelper::TcmHelper.new(product_name: 'Product',
+                                                    plan_name: 'Plan',
+                                                    suite_name: description)
 
     describe 'status checks' do
 
