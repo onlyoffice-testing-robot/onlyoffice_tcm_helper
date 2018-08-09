@@ -7,12 +7,12 @@ gemspec
 
 group :test do
   gem 'codecov', require: false
-  gem 'rspec'
   gem 'onlyoffice_file_helper'
+  gem 'rspec'
 end
 
 group :development do
+  gem 'onlyoffice_file_helper'
   gem 'overcommit', require: false
   gem 'rubocop', require: false
-  gem 'onlyoffice_file_helper'
 end

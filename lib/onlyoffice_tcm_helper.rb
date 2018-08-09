@@ -6,7 +6,6 @@ module OnlyofficeTcmHelper
     include RspecHelper
     attr_accessor :status, :cases_name, :example, :comment, :product_name, :plan_name, :suite_name, :last_case
 
-
     def initialize(params = {})
       @product_name = params[:product_name]
       @plan_name = params[:plan_name]

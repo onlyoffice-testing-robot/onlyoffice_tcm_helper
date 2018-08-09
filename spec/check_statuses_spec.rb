@@ -4,7 +4,6 @@ RSpec.describe OnlyofficeTcmHelper do
                                                     plan_name: 'Plan',
                                                     suite_name: description)
 
-
     it 'check comment for passed status' do
       expect(tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).comment).to eq("\nOk")
     end
