@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    onlyoffice_tcm_helper (0.1.0)
+    onlyoffice_tcm_helper (0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -77,4 +77,4 @@ DEPENDENCIES
   rubocop
 
 BUNDLED WITH
-   1.16.1
+   1.16.3
