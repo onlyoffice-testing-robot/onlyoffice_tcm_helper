@@ -1,35 +1,31 @@
 # OnlyofficeTcmHelper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/onlyoffice_tcm_helper`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem is using by ONLYOFFICE QA team for getting all data from rspecs "it"
 
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'onlyoffice_tcm_helper'
+For using, need to create tcm object in spec, but before tests. 
+You can do it by example:
+```
+    tcm_helper = OnlyofficeTcmHelper::TcmHelper.new(product: 'Product', plan: 'Plan', suite: description)
 ```
 
-And then execute:
+Attributes is not necessary, but will be good to add this
 
-    $ bundle
+And use method `parse` from this object:
+```
+result = tcm_helper.parse(example)
+```
+example is a object of `RSpec::Core::Example`
 
-Or install it yourself as:
+`result` is a object with all necessary data for adding result to you tcm:
 
-    $ gem install onlyoffice_tcm_helper
+`result.product_name` - name of product
 
-## Usage
+`result.plan_name` - name of plan
 
-TODO: Write usage instructions here
+`result.suite_name` - name of suite
 
-## Development
+`result.cases_name` - name of suite
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+`result.status` - name of status. Can be `:passed, :passed_2, :failed, :aborted, :pending, :lpv, :service_unavailable`
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/onlyoffice_tcm_helper.
+`result.comment` - comment of result
