@@ -1,5 +1,12 @@
 require 'bundler/setup'
 require 'onlyoffice_tcm_helper'
+require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExample'
+require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExamplePassed'
+require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExampleFailed'
+require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExampleAborted'
+require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExamplePending'
+require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExampleServiceUnavailable'
+require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExampleLPV'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

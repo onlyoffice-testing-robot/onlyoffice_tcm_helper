@@ -19,6 +19,10 @@ GEM
     iniparse (1.4.4)
     jaro_winkler (1.5.1)
     json (2.1.0)
+    onlyoffice_file_helper (0.1.0)
+      onlyoffice_logger_helper (~> 1)
+      rubyzip (~> 1.0)
+    onlyoffice_logger_helper (1.0.1)
     overcommit (0.45.0)
       childprocess (~> 0.6, >= 0.6.3)
       iniparse (~> 1.4)
@@ -50,6 +54,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.9.0)
+    rubyzip (1.2.1)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -64,6 +69,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   codecov
+  onlyoffice_file_helper
   onlyoffice_tcm_helper!
   overcommit
   rake (~> 10.0)

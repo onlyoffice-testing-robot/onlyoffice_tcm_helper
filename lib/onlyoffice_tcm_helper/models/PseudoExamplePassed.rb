@@ -1,0 +1,1 @@
+class PseudoExamplePassed < PseudoExample; end
