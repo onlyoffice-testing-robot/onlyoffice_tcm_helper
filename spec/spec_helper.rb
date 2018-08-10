@@ -1,12 +1,12 @@
 require 'bundler/setup'
 require 'onlyoffice_tcm_helper'
-require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExample'
-require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExamplePassed'
-require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExampleFailed'
-require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExampleAborted'
-require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExamplePending'
-require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExampleServiceUnavailable'
-require_relative '../lib/onlyoffice_tcm_helper/models/PseudoExampleLPV'
+require_relative '../lib/onlyoffice_tcm_helper/models/pseudo_example'
+require_relative '../lib/onlyoffice_tcm_helper/models/pseudo_example_passed'
+require_relative '../lib/onlyoffice_tcm_helper/models/pseudo_example_failed'
+require_relative '../lib/onlyoffice_tcm_helper/models/pseudo_example_aborted'
+require_relative '../lib/onlyoffice_tcm_helper/models/pseudo_example_pending'
+require_relative '../lib/onlyoffice_tcm_helper/models/pseudo_example_service_unavailable'
+require_relative '../lib/onlyoffice_tcm_helper/models/pseudo_example_lpv'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

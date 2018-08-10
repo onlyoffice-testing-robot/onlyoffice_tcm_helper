@@ -1,7 +1,8 @@
-require_relative 'onlyoffice_tcm_helper/helpers/RspecHelper'
+require_relative 'onlyoffice_tcm_helper/helpers/rspec_helper'
 require 'onlyoffice_tcm_helper/version'
 require 'rspec'
 module OnlyofficeTcmHelper
+  # Class for generate data for result by RSpec::Core::Example
   class TcmHelper
     include RspecHelper
     attr_accessor :status, :cases_name, :example, :comment, :product_name, :plan_name, :suite_name, :last_case

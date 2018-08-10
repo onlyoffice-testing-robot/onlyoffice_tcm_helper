@@ -1,3 +1,4 @@
+# class is describe same RSpec::Core::Example::ExecutingResult with no errors
 class ExecutingResult
   attr_reader :started_at
 

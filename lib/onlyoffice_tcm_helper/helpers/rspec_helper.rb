@@ -1,4 +1,5 @@
 require 'onlyoffice_file_helper'
+# module with methods for parsing test results
 module RspecHelper
   # This method is based on
   # https://github.com/rspec/rspec-core/blob/v3.3.0/lib/rspec/core/formatters/exception_presenter.rb#L130

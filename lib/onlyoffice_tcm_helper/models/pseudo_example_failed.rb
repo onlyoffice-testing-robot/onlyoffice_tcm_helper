@@ -1,3 +1,4 @@
+# class is describe object like RSpec::Core::Example with error in expected code
 class PseudoExampleFailed < PseudoExample
   def metadata
     {
