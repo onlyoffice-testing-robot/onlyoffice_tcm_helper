@@ -1,8 +1,8 @@
+require 'onlyoffice_tcm_helper/helpers/rspec_helper'
+require 'onlyoffice_tcm_helper/version'
+require 'rspec'
 # namespace for gem
 module OnlyofficeTcmHelper
-  require_relative 'onlyoffice_tcm_helper/helpers/rspec_helper'
-  require 'onlyoffice_tcm_helper/version'
-  require 'rspec'
   # Class for generate data for result by RSpec::Core::Example
   class TcmHelper
     include RspecHelper
