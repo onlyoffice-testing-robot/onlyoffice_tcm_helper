@@ -27,7 +27,7 @@ module OnlyofficeTcmHelper
       @status = if result_is_failed?(example)
                   @comment = "\n#{example.exception.to_s.gsub('got:', "got:\n").gsub('expected:', "expected:\n").gsub('to return ', "to return:\n")}\nIn line:\n#{RspecHelper.find_failed_line(example)}"
                   :failed
-                elsif result_is_pending?(example)
+                elsif example.pending?
                   @comment = example.execution_result.pending_message
                   :pending
                 elsif result_is_passed?(example)
@@ -63,10 +63,6 @@ module OnlyofficeTcmHelper
         return true if example.exception.to_s.include?(current_error)
       end
       false
-    end
-
-    def result_is_pending?(example)
-      example.pending?
     end
 
     def result_is_service_unavailable?(example)

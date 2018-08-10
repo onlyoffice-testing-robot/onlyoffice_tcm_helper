@@ -37,9 +37,5 @@ RSpec.describe OnlyofficeTcmHelper do
         PseudoExampleLPV.new('Check getting service_unavailable status')
       ).status).to eq(:lpv)
     end
-
-    after :each do |example|
-      example
-    end
   end
 end
