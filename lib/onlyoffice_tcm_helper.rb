@@ -6,7 +6,7 @@ module OnlyofficeTcmHelper
   # Class for generate data for result by RSpec::Core::Example
   class TcmHelper
     include RspecHelper
-    attr_accessor :status, :cases_name, :example, :comment, :product_name, :plan_name, :suite_name, :last_case
+    attr_accessor :status, :case_name, :example, :comment, :product_name, :plan_name, :suite_name, :last_case
 
     def initialize(params = {})
       @product_name = params[:product_name]
