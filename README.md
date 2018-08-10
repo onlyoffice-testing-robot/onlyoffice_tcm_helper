@@ -1,6 +1,6 @@
 # OnlyofficeTcmHelper
 
-This gem is using by ONLYOFFICE QA team for getting all data from rspecs "it"
+This gem is using by ONLYOFFICE QA team for getting data for adding results
 
 For using, need to create `TcmHelper` object in spec, but before tests. 
 You can do it by example:
