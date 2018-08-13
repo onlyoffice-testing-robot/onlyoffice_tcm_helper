@@ -1,12 +1,14 @@
 require 'onlyoffice_tcm_helper/helpers/rspec_helper'
 require 'onlyoffice_tcm_helper/version'
 require 'rspec'
+require 'socket'
+
 # namespace for gem
 module OnlyofficeTcmHelper
   # Class for generate data for result by RSpec::Core::Example
   class TcmHelper
     include RspecHelper
-    attr_accessor :status, :case_name, :example, :comment, :product_name, :plan_name, :suite_name, :last_case
+    attr_accessor :status, :case_name, :example, :comment, :product_name, :plan_name, :suite_name, :last_case, :result_message
 
     def initialize(params = {})
       @product_name = params[:product_name]
@@ -19,7 +21,24 @@ module OnlyofficeTcmHelper
     def parse(example)
       @case_name = example.metadata[:description]
       get_status_and_comment(example)
+      @result_message = get_message_and_custom_fields(example)
       self
+    end
+
+    def get_message_and_custom_fields(example)
+      custom_fields = {}
+      custom_fields[:subdescriber] = [
+        { title: 'elapsed', value: example_time_in_seconds(example) },
+        { title: 'custom_host', value: Socket.gethostname }
+      ]
+      custom_fields[:describer] = [{ title: 'comment', value: @comment }]
+      custom_fields.to_json
+    end
+
+    def example_time_in_seconds(example)
+      execution_time = (Time.now - example.metadata[:execution_result].started_at).to_i
+      execution_time = 1 if execution_time.zero? # Testrail cannot receive 0 as elapsed time
+      "#{execution_time}s"
     end
 
     # @param [RSpec::Core::Example] example - is a returned object in "after" block
