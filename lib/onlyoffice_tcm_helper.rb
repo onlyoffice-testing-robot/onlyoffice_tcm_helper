@@ -2,6 +2,7 @@ require 'onlyoffice_tcm_helper/helpers/rspec_helper'
 require 'onlyoffice_tcm_helper/version'
 require 'rspec'
 require 'socket'
+require 'json'
 
 # namespace for gem
 module OnlyofficeTcmHelper

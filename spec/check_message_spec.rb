@@ -1,35 +1,30 @@
+require 'json'
 RSpec.describe OnlyofficeTcmHelper do
-  describe 'Check comments' do
+  describe 'Check message' do
     tcm_helper = OnlyofficeTcmHelper::TcmHelper.new(product_name: 'Product',
                                                     plan_name: 'Plan',
                                                     suite_name: description)
-    it 'check comment for passed status' do
-      expect(tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).comment).to eq("\nOk")
+    it 'check message | subdescriber exist' do
+      result_message = tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).result_message
+      expect(JSON.parse(result_message)['subdescriber'].empty?).to be_falsey
     end
 
-    it 'check comment for passed_2 status' do
-      tcm_helper.parse(PseudoExamplePassed.new('check comment for passed_2 status'))
-      expect(tcm_helper.parse(PseudoExamplePassed.new('check comment for passed_2 status')).comment).to eq("\nPassed 2")
+    it 'check message | subdescriber elapsed check' do
+      result_message = tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).result_message
+      expect(JSON.parse(result_message)['subdescriber'][0]['title']).to eq('elapsed')
+      expect(JSON.parse(result_message)['subdescriber'][0]['value']).to eq('1s')
     end
 
-    it 'check comment for failed status' do
-      expect(tcm_helper.parse(PseudoExampleFailed.new('check comment for passed_2 status')).comment).not_to be_empty
+    it 'check message | subdescriber custom_host not exist' do
+      result_message = tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).result_message
+      expect(JSON.parse(result_message)['subdescriber'][1]['title']).to eq('custom_host')
+      expect(JSON.parse(result_message)['subdescriber'][1]['value']).not_to be_empty
     end
 
-    it 'check comment for aborted status' do
-      expect(tcm_helper.parse(PseudoExampleAborted.new('check comment for aborted status')).comment).not_to be_empty
-    end
-
-    it 'check comment for pending status' do
-      expect(tcm_helper.parse(PseudoExamplePending.new('check comment for pending status')).comment).to eq('Pending exception')
-    end
-
-    it 'check comment for service_unavailable status' do
-      expect(tcm_helper.parse(PseudoExampleServiceUnavailable.new('check comment for service_unavailable status')).comment).to eq("\nService Unavailable: 503")
-    end
-
-    it 'check comment for lpv status' do
-      expect(tcm_helper.parse(PseudoExampleLPV.new('check comment for lpv status')).comment).to eq("\nLimited program version")
+    it 'check message | describer' do
+      passed = PseudoExamplePassed.new('check comment for passed status')
+      result_message = tcm_helper.parse(passed).result_message
+      expect(JSON.parse(result_message)['describer'].first['value']).to eq(tcm_helper.parse(passed).comment)
     end
   end
 end
