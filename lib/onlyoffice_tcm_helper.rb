@@ -1,4 +1,5 @@
 require 'onlyoffice_tcm_helper/helpers/rspec_helper'
+require 'onlyoffice_tcm_helper/helpers/time_helper'
 require 'onlyoffice_tcm_helper/version'
 require 'rspec'
 require 'socket'
@@ -8,8 +9,26 @@ require 'json'
 module OnlyofficeTcmHelper
   # Class for generate data for result by RSpec::Core::Example
   class TcmHelper
+    include TimeHelper
     include RspecHelper
-    attr_accessor :status, :case_name, :example, :comment, :product_name, :plan_name, :suite_name, :last_case, :result_message
+    # @return [Symbol] one of status: passed, passed_2, failed, aborted, pending, service_unavailable, lpv
+    attr_reader :status
+    # @return [String] name of case(or name of result_set)
+    attr_reader :case_name
+    # @return [RSpec::Core::Example] example - is a returned object in "after" block
+    attr_reader :example
+    # @return [String] is a comment for result, like a error, link to bug, etc
+    attr_reader :comment
+    # @return [String] is a name of product
+    attr_reader :product_name
+    # @return [String] is a name of plan
+    attr_reader :plan_name
+    # @return [String] is a name of suite(ore run)
+    attr_reader :suite_name
+    # @return [String] is a name last case, who result has generated
+    attr_reader :last_case
+    # @return [Hash] is a result message
+    attr_reader :result_message
 
     def initialize(params = {})
       @product_name = params[:product_name]
@@ -34,12 +53,6 @@ module OnlyofficeTcmHelper
       ]
       custom_fields[:describer] = [{ title: 'comment', value: @comment }]
       custom_fields.to_json
-    end
-
-    def example_time_in_seconds(example)
-      execution_time = (Time.now - example.metadata[:execution_result].started_at).to_i
-      execution_time = 1 if execution_time.zero? # Testrail cannot receive 0 as elapsed time
-      "#{execution_time}s"
     end
 
     # @param [RSpec::Core::Example] example - is a returned object in "after" block
