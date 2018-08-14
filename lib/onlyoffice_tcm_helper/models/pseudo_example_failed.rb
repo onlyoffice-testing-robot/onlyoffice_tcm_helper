@@ -3,7 +3,7 @@ class PseudoExampleFailed < PseudoExample
   def metadata
     {
       description: 'Test for create failed status result',
-      execution_result: nil
+      execution_result: ExecutingResult.new
     }
   end
 

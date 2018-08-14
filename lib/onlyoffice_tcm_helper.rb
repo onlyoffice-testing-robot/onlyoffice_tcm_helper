@@ -1,12 +1,34 @@
 require 'onlyoffice_tcm_helper/helpers/rspec_helper'
+require 'onlyoffice_tcm_helper/helpers/time_helper'
 require 'onlyoffice_tcm_helper/version'
 require 'rspec'
+require 'socket'
+require 'json'
+
 # namespace for gem
 module OnlyofficeTcmHelper
   # Class for generate data for result by RSpec::Core::Example
   class TcmHelper
+    include TimeHelper
     include RspecHelper
-    attr_accessor :status, :case_name, :example, :comment, :product_name, :plan_name, :suite_name, :last_case
+    # @return [Symbol] one of status: passed, passed_2, failed, aborted, pending, service_unavailable, lpv
+    attr_reader :status
+    # @return [String] name of case(or name of result_set)
+    attr_reader :case_name
+    # @return [RSpec::Core::Example] example - is a returned object in "after" block
+    attr_reader :example
+    # @return [String] is a comment for result, like a error, link to bug, etc
+    attr_reader :comment
+    # @return [String] is a name of product
+    attr_reader :product_name
+    # @return [String] is a name of plan
+    attr_reader :plan_name
+    # @return [String] is a name of suite(ore run)
+    attr_reader :suite_name
+    # @return [String] is a name last case, who result has generated
+    attr_reader :last_case
+    # @return [Hash] is a result message
+    attr_reader :result_message
 
     def initialize(params = {})
       @product_name = params[:product_name]
@@ -19,7 +41,18 @@ module OnlyofficeTcmHelper
     def parse(example)
       @case_name = example.metadata[:description]
       get_status_and_comment(example)
+      @result_message = get_message_and_custom_fields(example)
       self
+    end
+
+    def get_message_and_custom_fields(example)
+      custom_fields = {}
+      custom_fields[:subdescriber] = [
+        { title: 'elapsed', value: example_time_in_seconds(example) },
+        { title: 'custom_host', value: Socket.gethostname }
+      ]
+      custom_fields[:describer] = [{ title: 'comment', value: @comment }]
+      custom_fields.to_json
     end
 
     # @param [RSpec::Core::Example] example - is a returned object in "after" block

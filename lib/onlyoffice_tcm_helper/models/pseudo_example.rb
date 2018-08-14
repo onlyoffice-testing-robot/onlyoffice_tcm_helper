@@ -11,7 +11,7 @@ class PseudoExample
   def metadata
     {
       description: @description,
-      execution_result: nil,
+      execution_result: @execution_result,
       absolute_file_path: __FILE__
     }
   end
