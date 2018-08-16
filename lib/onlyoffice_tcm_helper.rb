@@ -27,8 +27,8 @@ module OnlyofficeTcmHelper
     attr_reader :suite_name
     # @return [String] is a name last case, who result has generated
     attr_reader :last_case
-    # @return [Hash] is a result message
-    attr_reader :result_message
+    # @return [Hash] is a result message.
+    attr_accessor :result_message
 
     def initialize(params = {})
       @product_name = params[:product_name]
