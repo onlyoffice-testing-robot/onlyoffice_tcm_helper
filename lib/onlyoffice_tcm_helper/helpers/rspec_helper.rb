@@ -15,7 +15,7 @@ module OnlyofficeTcmHelper
         File.expand_path(line_path).casecmp(example_path).zero?
       end
       line_number = dirty_line[/:\d*:/].delete(':').to_i
-      FileHelper.read_array_from_file(example.metadata[:absolute_file_path])[line_number - 1]
+      OnlyofficeFileHelper::FileHelper.read_array_from_file(example.metadata[:absolute_file_path])[line_number - 1]
     rescue StandardError => e
       "Cannot find failed line because of exception: #{e}"
     end
