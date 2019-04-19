@@ -12,7 +12,7 @@ module OnlyofficeTcmHelper
     include TimeHelper
     include RspecHelper
     # @return [Symbol] one of status: passed, passed_2, failed, aborted, pending, service_unavailable, lpv
-    attr_reader :status
+    attr_accessor :status
     # @return [String] name of case(or name of result_set)
     attr_reader :case_name
     # @return [RSpec::Core::Example] example - is a returned object in "after" block
