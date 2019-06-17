@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # class is describe object like RSpec::Core::Example with error in no expected code
 class PseudoExampleAborted < PseudoExample
   def exception
