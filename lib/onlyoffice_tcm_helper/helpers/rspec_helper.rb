@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'onlyoffice_file_helper'
 # namespace
 module OnlyofficeTcmHelper

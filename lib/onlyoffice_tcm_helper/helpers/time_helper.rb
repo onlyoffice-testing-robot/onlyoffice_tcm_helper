@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # namespace
 module OnlyofficeTcmHelper
   # it is helper for work with time class

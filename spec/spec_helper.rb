@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bundler/setup'
 require 'onlyoffice_tcm_helper'
 require_relative '../lib/onlyoffice_tcm_helper/models/pseudo_example'

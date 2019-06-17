@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OnlyofficeTcmHelper do
   describe 'Check statuses' do
     tcm_helper = OnlyofficeTcmHelper::TcmHelper.new(product_name: 'Product',

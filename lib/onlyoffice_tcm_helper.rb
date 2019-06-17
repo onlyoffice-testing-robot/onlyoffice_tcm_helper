@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'onlyoffice_tcm_helper/helpers/rspec_helper'
 require 'onlyoffice_tcm_helper/helpers/time_helper'
 require 'onlyoffice_tcm_helper/version'

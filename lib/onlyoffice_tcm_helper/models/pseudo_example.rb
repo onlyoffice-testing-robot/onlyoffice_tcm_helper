@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'sub_elements/ExecutingResult'
 # class is describe object like RSpec::Core::Example
 class PseudoExample

@@ -37,13 +37,6 @@ Naming/FileName:
     - 'lib/onlyoffice_tcm_helper/models/sub_elements/ExecutingResult.rb'
     - 'lib/onlyoffice_tcm_helper/models/sub_elements/ExecutingResultPending.rb'
 
-# Offense count: 21
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, never
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 # Offense count: 37
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

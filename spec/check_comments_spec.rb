@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OnlyofficeTcmHelper do
   describe 'Check comments' do
     tcm_helper = OnlyofficeTcmHelper::TcmHelper.new(product_name: 'Product',
