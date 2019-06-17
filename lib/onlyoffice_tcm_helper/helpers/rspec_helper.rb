@@ -12,6 +12,7 @@ module OnlyofficeTcmHelper
       example_path = example.metadata[:absolute_file_path].downcase
       dirty_line = example.exception.backtrace.find do |line|
         next unless (line_path = line[/(.+?):(\d+)(|:\d+)/, 1])
+
         File.expand_path(line_path).casecmp(example_path).zero?
       end
       line_number = dirty_line[/:\d*:/].delete(':').to_i
