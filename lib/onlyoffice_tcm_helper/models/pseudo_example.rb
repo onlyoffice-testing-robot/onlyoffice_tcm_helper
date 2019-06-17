@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'sub_elements/ExecutingResult'
+require_relative 'sub_elements/executing_result'
 # class is describe object like RSpec::Core::Example
 class PseudoExample
   attr_reader :description, :execution_result
