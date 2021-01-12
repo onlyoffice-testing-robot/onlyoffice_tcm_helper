@@ -7,6 +7,7 @@ require 'onlyoffice_tcm_helper/version'
 Gem::Specification.new do |spec|
   spec.name          = 'onlyoffice_tcm_helper'
   spec.version       = OnlyofficeTcmHelper::VERSION
+  spec.required_ruby_version = '>= 2.5'
   spec.authors       = ['Dmitrii Rotatiy', 'ONLYOFFICE']
   spec.email         = ['kvazilife@gmail.com']
 
