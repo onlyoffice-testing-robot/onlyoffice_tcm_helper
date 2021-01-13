@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe OnlyofficeTcmHelper do
+RSpec.describe OnlyofficeTcmHelper::TcmHelper, '#status' do
   describe 'Check statuses' do
-    tcm_helper = OnlyofficeTcmHelper::TcmHelper.new(product_name: 'Product',
-                                                    plan_name: 'Plan',
-                                                    suite_name: description)
+    tcm_helper = described_class.new(product_name: 'Product',
+                                     plan_name: 'Plan',
+                                     suite_name: description)
 
     it 'Check getting passed status' do
       expect(tcm_helper.parse(PseudoExamplePassed.new('Check getting passed status')).status).to eq(:passed)

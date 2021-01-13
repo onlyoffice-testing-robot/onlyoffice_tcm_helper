@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe OnlyofficeTcmHelper do
+RSpec.describe OnlyofficeTcmHelper::TcmHelper, '#comment' do
   describe 'Check comments' do
-    tcm_helper = OnlyofficeTcmHelper::TcmHelper.new(product_name: 'Product',
-                                                    plan_name: 'Plan',
-                                                    suite_name: description)
+    tcm_helper = described_class.new(product_name: 'Product',
+                                     plan_name: 'Plan',
+                                     suite_name: description)
     it 'check comment for passed status' do
       expect(tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).comment).to eq("\nOk")
     end

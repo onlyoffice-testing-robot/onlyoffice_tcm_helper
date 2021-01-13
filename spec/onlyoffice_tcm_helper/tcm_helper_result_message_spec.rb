@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require 'json'
-RSpec.describe OnlyofficeTcmHelper do
+RSpec.describe OnlyofficeTcmHelper::TcmHelper, '#result_message' do
   describe 'Check message' do
-    tcm_helper = OnlyofficeTcmHelper::TcmHelper.new(product_name: 'Product',
-                                                    plan_name: 'Plan',
-                                                    suite_name: description)
+    tcm_helper = described_class.new(product_name: 'Product',
+                                     plan_name: 'Plan',
+                                     suite_name: description)
     it 'check message | subdescriber exist' do
       result_message = tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).result_message
       expect(JSON.parse(result_message)['subdescriber']).not_to be_empty
