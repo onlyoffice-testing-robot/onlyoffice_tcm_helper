@@ -9,6 +9,7 @@
 * Add coverage check in CI
 * Add `rubocop` check to CI
 * Add `dependabot` config
+* Add CI check that 100% code is documented
 
 ### Changes
 
@@ -16,6 +17,7 @@
 * Drop support of Rubies older than 2.5
 * Cleanup gemspec
 * Freeze all dependencies version in `Gemfile.lock`
+* Add missing documentation
 
 ## 0.1.1
 

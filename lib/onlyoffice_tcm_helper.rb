@@ -47,6 +47,9 @@ module OnlyofficeTcmHelper
       self
     end
 
+    # Get message and custom fields from example
+    # @param [Object] example to get
+    # @return [String] json data
     def get_message_and_custom_fields(example)
       custom_fields = {}
       custom_fields[:subdescriber] = [
