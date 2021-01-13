@@ -33,5 +33,10 @@ RSpec.describe OnlyofficeTcmHelper do
     it 'check comment for lpv status' do
       expect(tcm_helper.parse(PseudoExampleLPV.new('check comment for lpv status')).comment).to eq("\nLimited program version")
     end
+
+    it 'check comment for failed line' do
+      expect(tcm_helper.parse(PseudoExampleFailed.new('check comment for lpv status',
+                                                      exception_with_failed_lines: true)).comment).to include('RSpec.describe OnlyofficeTcmHelper do')
+    end
   end
 end
