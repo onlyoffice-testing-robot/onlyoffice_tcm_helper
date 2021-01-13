@@ -41,10 +41,6 @@ RSpec/FilePath:
     - 'spec/check_statuses_spec.rb'
     - 'spec/onlyoffice_tcm_helper/example_time_in_seconds_spec.rb'
 
-# Offense count: 2
-RSpec/MultipleExpectations:
-  Max: 2
-
 # Offense count: 6
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

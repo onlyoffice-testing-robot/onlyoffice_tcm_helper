@@ -11,16 +11,28 @@ RSpec.describe OnlyofficeTcmHelper do
       expect(JSON.parse(result_message)['subdescriber']).not_to be_empty
     end
 
-    it 'check message | subdescriber elapsed check' do
+    describe 'check message | subdescriber elapsed check' do
       result_message = tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).result_message
-      expect(JSON.parse(result_message)['subdescriber'][0]['title']).to eq('elapsed')
-      expect(JSON.parse(result_message)['subdescriber'][0]['value']).to eq('1s')
+
+      it 'title is elapsed' do
+        expect(JSON.parse(result_message)['subdescriber'][0]['title']).to eq('elapsed')
+      end
+
+      it 'value is 1s' do
+        expect(JSON.parse(result_message)['subdescriber'][0]['value']).to eq('1s')
+      end
     end
 
-    it 'check message | subdescriber custom_host not exist' do
+    describe 'check message | subdescriber custom_host not exist' do
       result_message = tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).result_message
-      expect(JSON.parse(result_message)['subdescriber'][1]['title']).to eq('custom_host')
-      expect(JSON.parse(result_message)['subdescriber'][1]['value']).not_to be_empty
+
+      it 'title is custom_host' do
+        expect(JSON.parse(result_message)['subdescriber'][1]['title']).to eq('custom_host')
+      end
+
+      it 'value is not empty' do
+        expect(JSON.parse(result_message)['subdescriber'][1]['value']).not_to be_empty
+      end
     end
 
     it 'check message | describer' do
