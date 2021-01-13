@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
   s.files = Dir['lib/**/*']
   s.license = 'AGPL-3.0'
   s.add_runtime_dependency('onlyoffice_file_helper', '~> 0')
+  s.add_development_dependency('simplecov', '~> 0')
 end

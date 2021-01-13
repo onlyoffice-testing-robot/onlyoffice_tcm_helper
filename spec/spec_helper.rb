@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+require 'simplecov'
+SimpleCov.start do
+  enable_coverage :branch
+end
+
 require 'bundler/setup'
 require 'onlyoffice_tcm_helper'
 require_relative '../lib/onlyoffice_tcm_helper/models/pseudo_example'

@@ -5,9 +5,9 @@ require_relative 'sub_elements/executing_result'
 class PseudoExample
   attr_reader :description, :execution_result
 
-  def initialize(description = 'Check something')
+  def initialize(description = 'Check something', started_at = Time.now)
     @description = description
-    @execution_result = ExecutingResult.new
+    @execution_result = ExecutingResult.new(started_at)
   end
 
   def metadata

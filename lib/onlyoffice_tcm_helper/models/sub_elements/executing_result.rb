@@ -4,7 +4,7 @@
 class ExecutingResult
   attr_reader :started_at
 
-  def initialize
-    @started_at = Time.now
+  def initialize(started_at = Time.now)
+    @started_at = started_at
   end
 end

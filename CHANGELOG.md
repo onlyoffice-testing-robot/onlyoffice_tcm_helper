@@ -5,6 +5,8 @@
 ### New features
 
 * Add `markdownlint` support and check in CI
+* Add `simplecov` support to check coverage
+* Add coverage check in CI
 
 ### Changes
 
