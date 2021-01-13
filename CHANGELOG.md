@@ -2,6 +2,8 @@
 
 ## Unreleased (master)
 
+## 0.2.0 (2021-01-13)
+
 ### New features
 
 * Add `markdownlint` support and check in CI
