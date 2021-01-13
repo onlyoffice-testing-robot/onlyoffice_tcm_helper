@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'pseudo_example_failed/mock_failed_exception'
 
 # class is describe object like RSpec::Core::Example with error in expected code
