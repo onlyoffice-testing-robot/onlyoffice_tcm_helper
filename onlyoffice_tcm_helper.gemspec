@@ -1,36 +1,26 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'onlyoffice_tcm_helper/version'
+require_relative 'lib/onlyoffice_tcm_helper/name'
+require_relative 'lib/onlyoffice_tcm_helper/version'
 
-Gem::Specification.new do |spec|
-  spec.name          = 'onlyoffice_tcm_helper'
-  spec.version       = OnlyofficeTcmHelper::VERSION
-  spec.required_ruby_version = '>= 2.5'
-  spec.authors       = ['Dmitrii Rotatiy', 'ONLYOFFICE']
-  spec.email         = ['kvazilife@gmail.com']
-
-  spec.summary       = 'It is helper for work with tcm systems'
-  spec.description   = 'It is helper for work with tcm systems, used in QA'
-  # spec.homepage      = "http://rubygems.org/gems/onlyoffice_tcm_helper"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  # if spec.respond_to?(:metadata)
-  #   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  # else
-  #   raise "RubyGems 2.0 or newer is required to protect against " \
-  #     "public gem pushes."
-  # end
-
-  # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files         = Dir.chdir(File.expand_path(__dir__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  end
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ['lib']
-  spec.add_runtime_dependency('onlyoffice_file_helper', '~> 0.1')
+Gem::Specification.new do |s|
+  s.name = OnlyofficeTcmHelper::NAME
+  s.version = OnlyofficeTcmHelper::VERSION
+  s.platform = Gem::Platform::RUBY
+  s.required_ruby_version = '>= 2.5'
+  s.authors = ['ONLYOFFICE', 'Dmitry Rotaty', 'Pavel Lobashov']
+  s.email = %w[shockwavenn@gmail.com]
+  s.summary = 'It is helper for work with tcm systems'
+  s.description = 'It is helper for work with tcm systems, used in QA'
+  s.homepage = "https://github.com/onlyoffice-testing-robot/#{s.name}"
+  s.metadata = {
+    'bug_tracker_uri' => "#{s.homepage}/issues",
+    'changelog_uri' => "#{s.homepage}/blob/master/CHANGELOG.md",
+    'documentation_uri' => "https://www.rubydoc.info/gems/#{s.name}",
+    'homepage_uri' => s.homepage,
+    'source_code_uri' => s.homepage
+  }
+  s.files = Dir['lib/**/*']
+  s.license = 'AGPL-3.0'
+  s.add_runtime_dependency('onlyoffice_file_helper', '~> 0')
 end
