@@ -23,20 +23,24 @@ RSpec.describe OnlyofficeTcmHelper::TcmHelper, '#comment' do
     end
 
     it 'check comment for pending status' do
-      expect(tcm_helper.parse(PseudoExamplePending.new('check comment for pending status')).comment).to eq('Pending exception')
+      expect(tcm_helper.parse(PseudoExamplePending.new('check comment for pending status'))
+                       .comment).to eq('Pending exception')
     end
 
     it 'check comment for service_unavailable status' do
-      expect(tcm_helper.parse(PseudoExampleServiceUnavailable.new('check comment for service_unavailable status')).comment).to eq("\nService Unavailable: 503")
+      expect(tcm_helper.parse(PseudoExampleServiceUnavailable.new('check comment for service_unavailable status'))
+                       .comment).to eq("\nService Unavailable: 503")
     end
 
     it 'check comment for lpv status' do
-      expect(tcm_helper.parse(PseudoExampleLPV.new('check comment for lpv status')).comment).to eq("\nLimited program version")
+      expect(tcm_helper.parse(PseudoExampleLPV.new('check comment for lpv status'))
+                       .comment).to eq("\nLimited program version")
     end
 
     it 'check comment for failed line' do
       expect(tcm_helper.parse(PseudoExampleFailed.new('check comment for lpv status',
-                                                      exception_with_failed_lines: true)).comment).to include('RSpec.describe OnlyofficeTcmHelper do')
+                                                      exception_with_failed_lines: true))
+                       .comment).to include('RSpec.describe OnlyofficeTcmHelper do')
     end
   end
 end
