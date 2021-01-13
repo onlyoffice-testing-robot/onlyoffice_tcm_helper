@@ -19,6 +19,7 @@
 * Cleanup gemspec
 * Freeze all dependencies version in `Gemfile.lock`
 * Add missing documentation
+* Remove not used CodeClimate config
 
 ## 0.1.1
 
