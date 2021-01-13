@@ -10,6 +10,7 @@ class PseudoExample
     @execution_result = ExecutingResult.new(started_at)
   end
 
+  # @return [Hash] metadata of class
   def metadata
     {
       description: @description,
@@ -18,8 +19,10 @@ class PseudoExample
     }
   end
 
+  # @return [nil] non-existing exception
   def exception; end
 
+  # @return [false] is example pending
   def pending?
     false
   end

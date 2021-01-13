@@ -10,6 +10,7 @@ class PseudoExampleFailed < PseudoExample
     super(description)
   end
 
+  # @return [Hash] metadata of class
   def metadata
     {
       description: 'Test for create failed status result',
@@ -18,6 +19,7 @@ class PseudoExampleFailed < PseudoExample
     }
   end
 
+  # @return [Object] exception data
   def exception
     return MockFailedException.new if @exception_with_failed_lines
 
