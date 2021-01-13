@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OnlyofficeTcmHelper::TcmHelper, '#example_time_in_seconds' do
   tcm_helper = described_class.new(product_name: 'Product',
                                    plan_name: 'Plan',

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Mock class to check exception
 class MockFailedException
   def to_s

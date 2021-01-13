@@ -45,15 +45,6 @@ RSpec/FilePath:
 RSpec/MultipleExpectations:
   Max: 2
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, always_true, never
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - 'lib/onlyoffice_tcm_helper/models/pseudo_example_failed/mock_failed_exception.rb'
-    - 'spec/onlyoffice_tcm_helper/example_time_in_seconds_spec.rb'
-
 # Offense count: 6
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
