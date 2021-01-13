@@ -20,6 +20,7 @@
 * Freeze all dependencies version in `Gemfile.lock`
 * Add missing documentation
 * Remove not used CodeClimate config
+* Moved repo to `ONLYOFFICE-QA` org
 
 ## 0.1.1
 

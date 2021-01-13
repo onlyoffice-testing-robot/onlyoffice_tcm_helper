@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = %w[shockwavenn@gmail.com]
   s.summary = 'It is helper for work with tcm systems'
   s.description = 'It is helper for work with tcm systems, used in QA'
-  s.homepage = "https://github.com/onlyoffice-testing-robot/#{s.name}"
+  s.homepage = "https://github.com/ONLYOFFICE-QA/#{s.name}"
   s.metadata = {
     'bug_tracker_uri' => "#{s.homepage}/issues",
     'changelog_uri' => "#{s.homepage}/blob/master/CHANGELOG.md",
