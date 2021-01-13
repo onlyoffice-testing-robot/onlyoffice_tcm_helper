@@ -2,6 +2,10 @@
 
 ## Unreleased (master)
 
+### New features
+
+* Add `markdownlint` support and check in CI
+
 ### Changes
 
 * Use GitHub Actions instead of TravisCI
