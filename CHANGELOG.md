@@ -8,6 +8,7 @@
 * Add `simplecov` support to check coverage
 * Add coverage check in CI
 * Add `rubocop` check to CI
+* Add `dependabot` config
 
 ### Changes
 
