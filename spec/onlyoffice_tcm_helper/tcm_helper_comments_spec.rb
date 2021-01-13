@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe OnlyofficeTcmHelper do
+RSpec.describe OnlyofficeTcmHelper::TcmHelper, '#comment' do
   describe 'Check comments' do
-    tcm_helper = OnlyofficeTcmHelper::TcmHelper.new(product_name: 'Product',
-                                                    plan_name: 'Plan',
-                                                    suite_name: description)
+    tcm_helper = described_class.new(product_name: 'Product',
+                                     plan_name: 'Plan',
+                                     suite_name: description)
     it 'check comment for passed status' do
       expect(tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).comment).to eq("\nOk")
     end
@@ -23,20 +23,24 @@ RSpec.describe OnlyofficeTcmHelper do
     end
 
     it 'check comment for pending status' do
-      expect(tcm_helper.parse(PseudoExamplePending.new('check comment for pending status')).comment).to eq('Pending exception')
+      expect(tcm_helper.parse(PseudoExamplePending.new('check comment for pending status'))
+                       .comment).to eq('Pending exception')
     end
 
     it 'check comment for service_unavailable status' do
-      expect(tcm_helper.parse(PseudoExampleServiceUnavailable.new('check comment for service_unavailable status')).comment).to eq("\nService Unavailable: 503")
+      expect(tcm_helper.parse(PseudoExampleServiceUnavailable.new('check comment for service_unavailable status'))
+                       .comment).to eq("\nService Unavailable: 503")
     end
 
     it 'check comment for lpv status' do
-      expect(tcm_helper.parse(PseudoExampleLPV.new('check comment for lpv status')).comment).to eq("\nLimited program version")
+      expect(tcm_helper.parse(PseudoExampleLPV.new('check comment for lpv status'))
+                       .comment).to eq("\nLimited program version")
     end
 
     it 'check comment for failed line' do
       expect(tcm_helper.parse(PseudoExampleFailed.new('check comment for lpv status',
-                                                      exception_with_failed_lines: true)).comment).to include('RSpec.describe OnlyofficeTcmHelper do')
+                                                      exception_with_failed_lines: true))
+                       .comment).to include('RSpec.describe OnlyofficeTcmHelper do')
     end
   end
 end
