@@ -8,7 +8,7 @@ RSpec.describe OnlyofficeTcmHelper do
                                                     suite_name: description)
     it 'check message | subdescriber exist' do
       result_message = tcm_helper.parse(PseudoExamplePassed.new('check comment for passed status')).result_message
-      expect(JSON.parse(result_message)['subdescriber'].empty?).to be_falsey
+      expect(JSON.parse(result_message)['subdescriber']).not_to be_empty
     end
 
     it 'check message | subdescriber elapsed check' do
