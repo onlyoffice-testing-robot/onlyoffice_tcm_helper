@@ -5,7 +5,7 @@ class PseudoExampleAborted < PseudoExample
   # @return [String] exception string
   def exception
     "undefined local variable or method `tasdasdrue' "\
-    'for #<RSpec::ExampleGroups::OnlyofficeTcmHelper::'\
-    'StatusChecks:0x000000020b8400>'
+      'for #<RSpec::ExampleGroups::OnlyofficeTcmHelper::'\
+      'StatusChecks:0x000000020b8400>'
   end
 end
